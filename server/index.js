@@ -15,15 +15,15 @@ app.use(bodyParser.json());
 app.use(passport.initialize());
 passportConfig(passport);
 
-app.get("/", (req, res) => {
-  res.send("Hello World");
-});
+// app.get("/", (req, res) => {
+//   res.send("Hello World");
+// });
 
 app.use("/", routes);
 
 await connect();
 
-if(process.env.NODE_ENV === "production"){
+if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
